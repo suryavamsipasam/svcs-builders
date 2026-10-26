@@ -1,0 +1,226 @@
+import { StyleSheet } from 'react-native';
+import { theme } from '../../theme/theme';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.background,
+  },
+  content: {
+    paddingHorizontal: 16,
+    paddingTop: 45,
+    paddingBottom: 35,
+  },
+  topHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+    width: '100%',
+    gap: 8,
+  },
+  headerActions: {
+    flexDirection: 'row',
+    gap: 8,
+    flexShrink: 0,
+  },
+  headerIconButton: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: theme.colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+  },
+  whatsappHeaderBtn: {
+    backgroundColor: '#E7F7ED',
+    borderColor: '#A3E6BA',
+  },
+  headerActionIcon: {
+    fontSize: 18,
+  },
+  greetingSection: {
+    marginBottom: 20,
+  },
+  locationPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(23, 61, 50, 0.08)',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: theme.radius.full,
+    marginBottom: 8,
+    maxWidth: '100%',
+  },
+  locationIcon: {
+    fontSize: 12,
+    marginRight: 4,
+  },
+  locationText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.primary,
+    flexShrink: 1,
+  },
+  mainGreeting: {
+    fontSize: 23,
+    fontWeight: '900',
+    color: theme.colors.primary,
+    fontFamily: theme.typography.fontSerif,
+    letterSpacing: 0.2,
+    lineHeight: 30,
+  },
+  subGreeting: {
+    fontSize: 13,
+    color: theme.colors.textSecondary,
+    lineHeight: 19,
+    marginTop: 4,
+  },
+  featuredSection: {
+    marginBottom: 22,
+  },
+  quickShortcutsSection: {
+    marginBottom: 22,
+  },
+  statusCardsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 4,
+    width: '100%',
+  },
+  pillarsSection: {
+    marginBottom: 22,
+  },
+  pillarsGrid: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 6,
+    width: '100%',
+  },
+  pillarBox: {
+    flex: 1,
+    minWidth: 0,
+    backgroundColor: theme.colors.surface,
+    padding: 14,
+    borderRadius: theme.radius.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  pillarIcon: {
+    fontSize: 24,
+    marginBottom: 6,
+  },
+  pillarTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: theme.colors.primary,
+  },
+  pillarDesc: {
+    fontSize: 11,
+    color: theme.colors.textSecondary,
+    lineHeight: 16,
+    marginTop: 4,
+  },
+  trustSection: {
+    backgroundColor: theme.colors.surface,
+    padding: 18,
+    borderRadius: theme.radius.lg,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    marginBottom: 22,
+  },
+  trustList: {
+    marginTop: 8,
+    gap: 12,
+  },
+  trustItem: {
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'flex-start',
+  },
+  trustCheck: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: theme.colors.accent,
+    marginTop: 2,
+  },
+  trustHeading: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: theme.colors.primary,
+  },
+  trustDetail: {
+    fontSize: 11,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+    lineHeight: 15,
+  },
+  statsBanner: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: theme.colors.primaryDark,
+    borderRadius: theme.radius.lg,
+    padding: 16,
+    marginBottom: 22,
+    borderWidth: 1,
+    borderColor: theme.colors.accent,
+  },
+  statBox: {
+    flex: 1,
+    minWidth: 0,
+    alignItems: 'center',
+  },
+  statNumber: {
+    fontSize: 20,
+    fontWeight: '900',
+    color: theme.colors.accentBright,
+  },
+  statLabel: {
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.75)',
+    textAlign: 'center',
+    marginTop: 2,
+  },
+  contactDeskBanner: {
+    backgroundColor: '#FFFFFF',
+    padding: 18,
+    borderRadius: theme.radius.lg,
+    borderWidth: 1.5,
+    borderColor: theme.colors.accent,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  contactDeskTitle: {
+    fontSize: 15,
+    fontWeight: '800',
+    color: theme.colors.primary,
+    textAlign: 'center',
+  },
+  contactDeskSub: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    textAlign: 'center',
+    marginTop: 4,
+    marginBottom: 14,
+  },
+  contactDeskBtn: {
+    backgroundColor: theme.colors.primary,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: theme.radius.sm,
+  },
+  contactDeskBtnText: {
+    color: '#FFFFFF',
+    fontWeight: '800',
+    fontSize: 13,
+  },
+});
+
+export default styles;

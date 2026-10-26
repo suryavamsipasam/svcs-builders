@@ -2,6 +2,7 @@
   "name": "svc-app",
   "version": "0.1.0",
   "private": true,
+  "main": "src/index.js",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -15,11 +16,14 @@
     "lucide-react": "^1.32.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-native-web": "^0.21.4",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:expo": "expo start",
+    "expo:tunnel": "expo start --tunnel",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
