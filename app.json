@@ -4,32 +4,6 @@
     "slug": "svc-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./public/logo192.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./public/logo512.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#173D32"
-    },
-    "scheme": "svcs",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.svcsconstructions.app"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./public/logo192.png",
-        "backgroundColor": "#173D32"
-      },
-      "package": "com.svcsconstructions.app"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "single",
-      "favicon": "./public/favicon.ico"
-    }
+    "userInterfaceStyle": "light"
   }
 }
