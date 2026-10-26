@@ -9,7 +9,7 @@ import {
   SafeAreaView,
   Share,
 } from 'react-native';
-import { openWhatsApp, dialPhoneNumber } from '../../services/contactService';
+import { openWhatsApp, dialPhoneNumber, openProjectLocationMap } from '../../services/contactService';
 import styles from './ProjectDetailsModal.styles';
 
 export const ProjectDetailsModal = ({ project, visible, onClose }) => {
@@ -70,7 +70,17 @@ export const ProjectDetailsModal = ({ project, visible, onClose }) => {
           <View style={styles.mainInfoCard}>
             <Text style={styles.projectMainTitle}>{project.title}</Text>
             <Text style={styles.projectSubtitle}>{project.subtitle}</Text>
-            <Text style={styles.locationDetail}>📍 {project.location}</Text>
+
+            <TouchableOpacity
+              style={styles.locationPillBtn}
+              onPress={() => openProjectLocationMap(project)}
+              activeOpacity={0.75}
+            >
+              <Text style={styles.locationDetail}>📍 {project.location}</Text>
+              <View style={styles.mapBadge}>
+                <Text style={styles.mapBadgeText}>Open Maps ↗</Text>
+              </View>
+            </TouchableOpacity>
 
             <View style={styles.priceRow}>
               <View>
@@ -92,6 +102,7 @@ export const ProjectDetailsModal = ({ project, visible, onClose }) => {
               { key: 'drawings', label: 'Drawings & Approvals' },
               { key: 'amenities', label: 'Amenities' },
               { key: 'progress', label: 'Site Progress' },
+              { key: 'location', label: 'Google Maps' },
             ].map((tab) => {
               const isActive = activeTab === tab.key;
               return (
@@ -367,6 +378,63 @@ export const ProjectDetailsModal = ({ project, visible, onClose }) => {
                     </View>
                   ))}
               </View>
+            </View>
+          )}
+
+          {/* Tab 6: Google Maps Location & Connectivity */}
+          {activeTab === 'location' && (
+            <View style={styles.tabContentCard}>
+              <Text style={styles.cardSectionHeading}>Project Site & Google Maps Location</Text>
+              <Text style={styles.paragraphText}>
+                Strategically situated with direct highway access, rapid transit corridors, and civic infrastructure.
+              </Text>
+
+              {/* Dedicated Interactive Map Card */}
+              <View style={styles.mapCard}>
+                <View style={styles.mapCardHeader}>
+                  <View style={styles.mapIconCircle}>
+                    <Text style={styles.mapIcon}>📍</Text>
+                  </View>
+                  <View style={styles.mapInfoCol}>
+                    <Text style={styles.mapSiteTitle}>{project.title} Site Location</Text>
+                    <Text style={styles.mapAddressText}>
+                      {project.mapLocation?.address || project.location}
+                    </Text>
+                    {project.mapLocation?.landmark ? (
+                      <Text style={styles.mapLandmarkText}>
+                        Landmark: {project.mapLocation.landmark}
+                      </Text>
+                    ) : null}
+                  </View>
+                </View>
+
+                <TouchableOpacity
+                  style={styles.googleMapsButton}
+                  onPress={() => openProjectLocationMap(project)}
+                  activeOpacity={0.88}
+                >
+                  <Text style={styles.googleMapsBtnIcon}>🗺️</Text>
+                  <Text style={styles.googleMapsBtnText}>
+                    Get Driving Directions on Google Maps ↗
+                  </Text>
+                </TouchableOpacity>
+              </View>
+
+              {/* Nearby Transit & Distance Guide */}
+              {project.mapLocation?.nearbyLandmarks && (
+                <View style={styles.nearbySection}>
+                  <Text style={styles.nearbySectionHeading}>Distance from Key Landmarks</Text>
+                  <View style={styles.nearbyList}>
+                    {project.mapLocation.nearbyLandmarks.map((landmark, idx) => (
+                      <View key={idx} style={styles.nearbyItem}>
+                        <View style={styles.nearbyDot} />
+                        <Text style={styles.nearbyName}>{landmark.name}</Text>
+                        <Text style={styles.nearbyTime}>{landmark.distance}</Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              )}
             </View>
           )}
 

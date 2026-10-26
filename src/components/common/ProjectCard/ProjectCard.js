@@ -58,7 +58,12 @@ export const ProjectCard = ({
           {!isFeatured && <Text style={styles.priceTag}>{project.priceFull}</Text>}
         </View>
 
-        <Text style={styles.location}>📍 {project.location}</Text>
+        <View style={styles.locationRow}>
+          <Text style={styles.location} numberOfLines={1}>
+            📍 {project.location}
+          </Text>
+          <Text style={styles.mapHintText}>Map ↗</Text>
+        </View>
 
         <View style={styles.specRow}>
           {project.bhkTypes && project.bhkTypes.length > 0 && (

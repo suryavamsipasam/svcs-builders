@@ -48,6 +48,42 @@ export const openMapDirections = async () => {
   try {
     await Linking.openURL(mapUrl);
   } catch (err) {
-    Alert.alert('Location', SVCS_COMPANY_INFO.address);
+    if (Platform.OS === 'web') {
+      window.open(mapUrl, '_blank');
+    } else {
+      Alert.alert('Location', SVCS_COMPANY_INFO.address);
+    }
   }
 };
+
+export const openProjectLocationMap = async (project) => {
+  if (!project) return;
+  const mapData = project.mapLocation;
+  let query = '';
+
+  if (mapData?.latitude && mapData?.longitude) {
+    query = `${mapData.latitude},${mapData.longitude}`;
+  } else if (mapData?.address) {
+    query = encodeURIComponent(mapData.address);
+  } else {
+    query = encodeURIComponent(`${project.title}, ${project.location}`);
+  }
+
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+
+  try {
+    const supported = await Linking.canOpenURL(mapUrl);
+    if (supported || Platform.OS === 'web') {
+      await Linking.openURL(mapUrl);
+    } else {
+      Alert.alert('Project Location', mapData?.address || project.location);
+    }
+  } catch (err) {
+    if (Platform.OS === 'web') {
+      window.open(mapUrl, '_blank');
+    } else {
+      Alert.alert('Project Location', mapData?.address || project.location);
+    }
+  }
+};
+

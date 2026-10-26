@@ -96,10 +96,23 @@ export const styles = StyleSheet.create({
     fontWeight: '900',
     color: theme.colors.accent,
   },
-  location: {
-    fontSize: 13,
-    color: theme.colors.textSecondary,
+  locationRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginTop: 4,
+    gap: 6,
+  },
+  location: {
+    fontSize: 12.5,
+    color: theme.colors.textSecondary,
+    flex: 1,
+  },
+  mapHintText: {
+    fontSize: 10.5,
+    fontWeight: '800',
+    color: theme.colors.accent,
+    letterSpacing: 0.3,
   },
   specRow: {
     flexDirection: 'row',
